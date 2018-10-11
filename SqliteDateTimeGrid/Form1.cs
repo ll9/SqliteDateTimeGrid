@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace SqliteDateTimeGrid
         public Form1()
         {
             InitializeComponent();
+
+            var sqliteService = new SqliteService("lds.sqlite", "lds_features");
+            var dataTable = sqliteService.GetDataTable();
+            Debug.WriteLine(dataTable.Columns[0].DataType);
+            dataGridView1.DataSource = sqliteService.GetDataTable();
         }
     }
 }
