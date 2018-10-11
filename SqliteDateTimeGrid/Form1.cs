@@ -13,7 +13,7 @@ namespace SqliteDateTimeGrid
 {
     public partial class Form1 : Form
     {
-        private SqliteService SqliteService { get; } = new SqliteService("lds.sqlite", "lds_features2");
+        private SqliteService SqliteService { get; } = new SqliteService("lds.sqlite", "lds_features3");
 
         public Form1()
         {

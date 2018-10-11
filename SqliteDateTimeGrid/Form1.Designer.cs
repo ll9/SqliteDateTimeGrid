@@ -39,12 +39,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(50, 53);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(280, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(359, 297);
             this.dataGridView1.TabIndex = 0;
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(372, 53);
+            this.UpdateButton.Location = new System.Drawing.Point(445, 49);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(75, 23);
             this.UpdateButton.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // FillButton
             // 
-            this.FillButton.Location = new System.Drawing.Point(372, 98);
+            this.FillButton.Location = new System.Drawing.Point(445, 94);
             this.FillButton.Name = "FillButton";
             this.FillButton.Size = new System.Drawing.Size(75, 23);
             this.FillButton.TabIndex = 2;
