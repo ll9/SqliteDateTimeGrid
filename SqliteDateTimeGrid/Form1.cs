@@ -13,14 +13,20 @@ namespace SqliteDateTimeGrid
 {
     public partial class Form1 : Form
     {
+        private SqliteService SqliteService { get; } = new SqliteService("lds.sqlite", "lds_features");
+
         public Form1()
         {
             InitializeComponent();
+            var dataTable = SqliteService.GetDataTable();
+            Debug.WriteLine(dataTable.Columns[1].DataType);
+            dataGridView1.DataSource = SqliteService.GetDataTable();
+        }
 
-            var sqliteService = new SqliteService("lds.sqlite", "lds_features");
-            var dataTable = sqliteService.GetDataTable();
-            Debug.WriteLine(dataTable.Columns[0].DataType);
-            dataGridView1.DataSource = sqliteService.GetDataTable();
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            SqliteService.Update(dataGridView1.DataSource as DataTable);
         }
     }
 }

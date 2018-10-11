@@ -38,7 +38,11 @@ namespace SqliteDateTimeGrid
 
             using (SQLiteConnection connection = GetConnection())
             using (var adapter = new SQLiteDataAdapter(query, connection))
+            using (var commandBuilder = new SQLiteCommandBuilder(adapter))
             {
+                adapter.UpdateCommand = commandBuilder.GetUpdateCommand();
+                adapter.DeleteCommand = commandBuilder.GetDeleteCommand();
+                adapter.InsertCommand = commandBuilder.GetInsertCommand();
                 adapter.Update(dataTable);
             }
         }
