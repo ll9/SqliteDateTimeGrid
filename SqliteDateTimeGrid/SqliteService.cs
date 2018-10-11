@@ -19,17 +19,15 @@ namespace SqliteDateTimeGrid
             TableName = tableName;
         }
         
-        public DataTable GetDataTable()
+        public void FillDataTable(DataTable dataTable)
         {
             var query = $"select * from {TableName}";
-            var dataTable = new DataTable();
 
             using (SQLiteConnection connection = GetConnection())
             using (var adapter = new SQLiteDataAdapter(query, connection))
             {
                 adapter.Fill(dataTable);
             }
-            return dataTable;
         }
 
         public void Update(DataTable dataTable)

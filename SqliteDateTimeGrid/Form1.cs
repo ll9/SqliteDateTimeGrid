@@ -18,15 +18,21 @@ namespace SqliteDateTimeGrid
         public Form1()
         {
             InitializeComponent();
-            var dataTable = SqliteService.GetDataTable();
+            var dataTable = new DataTable();
+            SqliteService.FillDataTable(dataTable);
             Debug.WriteLine(dataTable.Columns[1].DataType);
-            dataGridView1.DataSource = SqliteService.GetDataTable();
+            dataGridView1.DataSource = dataTable;
         }
 
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             SqliteService.Update(dataGridView1.DataSource as DataTable);
+        }
+
+        private void FillButton_Click(object sender, EventArgs e)
+        {
+            SqliteService.FillDataTable(dataGridView1.DataSource as DataTable);
         }
     }
 }
