@@ -32,6 +32,17 @@ namespace SqliteDateTimeGrid
             return dataTable;
         }
 
+        public void Update(DataTable dataTable)
+        {
+            var query = $"select * from {TableName}";
+
+            using (SQLiteConnection connection = GetConnection())
+            using (var adapter = new SQLiteDataAdapter(query, connection))
+            {
+                adapter.Update(dataTable);
+            }
+        }
+
         private SQLiteConnection GetConnection()
         {
             var connection = new SQLiteConnection($"Data Source={DbPath}");
