@@ -19,6 +19,8 @@ namespace SqliteDateTimeGrid
         {
             InitializeComponent();
             var dataTable = new DataTable();
+            dataTable.Columns.Add("datum", typeof(DateTime));
+
             SqliteService.FillDataTable(dataTable);
             Debug.WriteLine(dataTable.Columns[1].DataType);
             dataGridView1.DataSource = dataTable;
